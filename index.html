@@ -33,84 +33,11 @@ textarea{width:100%;box-sizing:border-box;min-height:80px}
 .hint{color:var(--mut);font-size:.9rem}.res{font-weight:700;margin-left:8px}
 .text{font-size:1.15rem;line-height:2.2}
 details{margin-top:10px}
-
-/* Зимнее оформление — функциональность заданий и проверок сохранена */
-:root{
-  --bg:#eaf5fc;--card:rgba(255,255,255,.92);--ink:#19334a;--mut:#5f7b91;
-  --acc:#287eae;--accbg:#dff1fb;--ok:#21845b;--okbg:#e2f6ed;
-  --bad:#bd4d5b;--badbg:#fde9ec;--line:#c9e0ee;
-}
-body{
-  background:
-    radial-gradient(ellipse at 8% 4%,rgba(255,255,255,.98) 0 2px,transparent 3px),
-    radial-gradient(ellipse at 92% 12%,rgba(255,255,255,.9) 0 3px,transparent 4px),
-    linear-gradient(155deg,#e5f4fc 0%,#f5fbff 48%,#dceefa 100%);
-  background-attachment:fixed;
-}
-body:before,body:after{
-  content:"❄";position:fixed;z-index:0;pointer-events:none;color:rgba(75,151,190,.16);
-  font-size:150px;line-height:1;
-}
-body:before{top:12px;left: max(-25px,calc((100vw - 1050px)/2 - 65px));transform:rotate(-12deg)}
-body:after{right:max(-25px,calc((100vw - 1050px)/2 - 65px));bottom:18px;font-size:190px;transform:rotate(14deg)}
-main{position:relative;z-index:1;max-width:850px;padding:22px 18px 40px}
-h1{
-  color:#155477;text-align:center;font-size:clamp(1.55rem,4vw,2.15rem);
-  line-height:1.25;margin:18px 0 22px;text-shadow:0 2px 0 #fff;
-}
-h1:before{content:"❄  ";color:#58a5cc}
-h1:after{content:"  ❄";color:#58a5cc}
-.card{
-  background:var(--card);border:1px solid rgba(151,195,218,.75);
-  border-radius:20px;padding:20px;margin:17px 0;
-  box-shadow:0 8px 24px rgba(44,105,139,.09),inset 0 1px 0 #fff;
-  backdrop-filter:blur(7px);
-}
-.card h2{color:#205f83}
-.bar{
-  background:linear-gradient(100deg,#d9effa,#edf8fd);
-  color:#205f83;border:1px solid #c6e3f2;border-radius:14px;
-  box-shadow:0 3px 10px rgba(44,105,139,.08);
-}
-.pair{
-  background:linear-gradient(145deg,#e9f7ff,#d8effb);
-  color:#1d6288;border:1px solid #c5e4f3;
-  box-shadow:inset 0 1px 0 #fff;
-}
-.tip{background:#e9f7f0;border-left-color:#42a77b}
-button,select,input,textarea{
-  border-color:#c8deeb;background:#fff;color:#19334a;
-  box-shadow:0 1px 2px rgba(35,91,124,.04);
-}
-button{transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease}
-button:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 10px rgba(42,111,151,.13)}
-button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{
-  outline:3px solid rgba(56,145,190,.28);outline-offset:2px
-}
-button.main{
-  background:linear-gradient(135deg,#318fbd,#216e9a);border-color:#287da8;color:#fff;
-  border-radius:12px;padding:8px 16px;box-shadow:0 4px 10px rgba(36,112,153,.18)
-}
-button.good,input.good,select.good{background:var(--okbg);border-color:var(--ok)}
-button.bad,input.bad,select.bad{background:var(--badbg);border-color:var(--bad)}
-.gap{border-color:#368ab4}
-.row{border-bottom-color:#d6e7f0}
-details summary{cursor:pointer;color:#286e93;font-weight:600}
-textarea{background:rgba(255,255,255,.96)}
-.hint{color:#648096}
-@media(max-width:520px){
-  main{padding:14px 12px 28px}
-  .card{padding:15px;border-radius:17px}
-  .w{min-width:105px}
-  body:before,body:after{font-size:90px;opacity:.65}
-}
-
 </style>
 </head>
 <body>
 <main>
 <h1>✏️ Парные согласные в корне слова</h1>
-<p style="text-align:center;color:#648096;margin:-12px 0 18px;font-size:.95rem">❄️ Зимняя школа грамотности · учимся играя ❄️</p>
 <div class="bar"><span>Прогресс</span><span id="total">0 / 0</span></div>
 
 <section class="card">
@@ -128,7 +55,7 @@ textarea{background:rgba(255,255,255,.96)}
 </section>
 
 <section class="card"><h2>Задание 1. Вставь букву <span class="res" id="r1"></span></h2><p class="hint">Нажми на нужную букву. После верного ответа появится проверочное слово.</p><div id="t1"></div></section>
-<section class="card"><h2>Задание 2. Подбери проверочное слово <span class="res" id="r2"></span></h2><p class="hint">Впиши родственное слово, где согласная стоит перед гласным.</p><div id="t2"></div><button class="main" onclick="chk2()">Проверить</button></section>
+<section class="card"><h2>Задание 2. Подбери проверочное слово <span class="res" id="r2"></span></h2><p class="hint">Впиши родственное слово, где согласная стоит перед гласным. Если слово можно понять по-разному, подойдёт любой верный вариант.</p><div id="t2"></div><button class="main" onclick="chk2()">Проверить</button></section>
 <section class="card"><h2>Задание 3. Выбери правильное написание <span class="res" id="r3"></span></h2><div id="t3"></div></section>
 <section class="card"><h2>Задание 4. Объёмное: вставь буквы в тексте <span class="res" id="r4"></span></h2><div class="text" id="t4"></div><button class="main" onclick="chk4()">Проверить текст</button></section>
 <section class="card"><h2>Задание 5. Слово и проверочное слово <span class="res" id="r5"></span></h2><p class="hint">Выбери для каждого слова верную проверку.</p><div id="t5"></div><button class="main" onclick="chk5()">Проверить</button></section>
@@ -154,9 +81,9 @@ D1.forEach(([a,o,b,ans,chk])=>{
  $('#t1').append(r)});upd(1,0,20);
 
 // 2
-const D2=[['голу_ь','б',['голуби','голубка']],['дру_','г',['друзья','дружить','дружок']],['обе_','д',['обеды','обедать']],['цве_','т',['цветы','цветок','цвести']],['гара_','ж',['гаражи']],['ле_','с',['леса','лесок','лесной']],['ро_','г',['рога']],['мос_','т',['мосты','мостик']],['моро_','з',['морозы','морозный']],['жу_','к',['жуки','жучок']],['гу_ь','с',['гуси','гусята']],['наро_','д',['народы','народный']]];
+const D2=[['голу_ь','б',['голуби','голубка']],['дру_','г',['друга','другу','другом','подруга']],['обе_','д',['обеды','обедать']],['цве_','т',['цвета','цвету','цветом','цвете']],['гара_','ж',['гаражи']],['ле_','с',['леса','лесок','лесной','льда:д','льды:д','ледок:д','ледяной:д','льва:в','львы:в']],['ро_','г',['рога','ржи:ж','ржаной:ж','рта:т','рты:т','рода:д','рва:в']],['мос_','т',['мосты','мостик']],['моро_','з',['морозы','морозный']],['жу_','к',['жуки','жучок']],['гу_ь','с',['гуси','гусята']],['наро_','д',['народы','народный']]];
 D2.forEach(([w,l,a],i)=>$('#t2').append(el(`<div class="row"><span class="w">${w}</span><input id="i2_${i}" autocomplete="off" placeholder="проверочное слово"><span class="hint" id="h2_${i}"></span></div>`)));
-function chk2(){let n=0;D2.forEach(([w,l,a],i)=>{const e=$('#i2_'+i),ok=a.map(N).includes(N(e.value));if(ok)n++;e.className=ok?'good':'bad';$('#h2_'+i).textContent=ok?'Буква «'+l+'»':'Например: '+a[0]+' → «'+l+'»'});upd(2,n,12)}
+function chk2(){let n=0;D2.forEach(([w,l,a],i)=>{const e=$('#i2_'+i),v=N(e.value),m=a.map(x=>x.split(':')).find(x=>N(x[0])===v),ok=!!m;if(ok)n++;e.className=ok?'good':'bad';$('#h2_'+i).textContent=ok?'Буква «'+(m[1]||l)+'»':'Например: '+a[0]+' → «'+l+'»'+(a.some(x=>x.includes(':'))?' (возможны и другие слова)':'')});upd(2,n,12)}
 
 // 3
 const D3=[['Бабушка испекла вкусный','пирог','пирок'],['В саду растёт крепкий','дуб','дуп'],['На зелёном','луг','лук'],['Утром выпал первый','снег','снек'],['В корзинке лежал белый','гриб','грип'],['У дома цветёт','сад','сат'],['Положи в суп','ложку','лошку'],['Мама рассказала мне','сказку','скаску'],['Это очень','лёгкая','лёкая'],['Надень тёплую','шапку','шабку']];
