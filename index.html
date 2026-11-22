@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Глухие и звонкие согласные в корне</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#fbf7ee;--card:#fff;--ink:#2b2a33;--mut:#6b6878;--acc:#5b5bd6;--accbg:#ececff;--ok:#1e8e4e;--okbg:#e2f6e9;--bad:#c93a3a;--badbg:#fde7e7;--line:#e3ddd0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1a22;--card:#25242e;--ink:#eeedf5;--mut:#a5a2b5;--acc:#9a9aff;--accbg:#33325a;--ok:#5fd68c;--okbg:#1f3a2a;--bad:#ff8080;--badbg:#472626;--line:#3a3947;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1b1a22;--card:#25242e;--ink:#eeedf5;--mut:#a5a2b5;--acc:#9a9aff;--accbg:#33325a;--ok:#5fd68c;--okbg:#1f3a2a;--bad:#ff8080;--badbg:#472626;--line:#3a3947;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:820px;margin:0 auto;padding:16px}
+h1{font-size:1.7rem;margin:.4em 0}h2{font-size:1.25rem;margin:0 0 .5em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:16px 0}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--accbg);border-radius:12px;padding:8px 14px;display:flex;justify-content:space-between;font-weight:600}
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:10px 0}
+.pair{background:var(--accbg);border-radius:12px;text-align:center;padding:8px;font-size:1.3rem;font-weight:700}
+.pair small{display:block;font-size:.75rem;font-weight:400;color:var(--mut)}
+.tip{background:var(--okbg);border-left:4px solid var(--ok);padding:8px 12px;border-radius:8px;margin:10px 0}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.row:last-child{border:0}
+.w{font-size:1.25rem;font-weight:600;min-width:130px}
+.gap{display:inline-block;min-width:1.1em;border-bottom:3px solid var(--acc);text-align:center}
+.gap.ok{color:var(--ok);border-color:var(--ok)}
+button,select,input,textarea{font:inherit;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:10px;padding:6px 12px}
+button{cursor:pointer}button.o{min-width:44px;font-weight:700}
+button.bad{background:var(--badbg);border-color:var(--bad)}button.good{background:var(--okbg);border-color:var(--ok)}
+button.main{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:600;margin-top:10px}
+input{width:11em}input.good,select.good{border-color:var(--ok);background:var(--okbg)}input.bad,select.bad{border-color:var(--bad);background:var(--badbg)}
+textarea{width:100%;box-sizing:border-box;min-height:80px}
+.hint{color:var(--mut);font-size:.9rem}.res{font-weight:700;margin-left:8px}
+.text{font-size:1.15rem;line-height:2.2}
+details{margin-top:10px}
+
+/* Зимнее оформление — функциональность заданий и проверок сохранена */
+:root{
+  --bg:#eaf5fc;--card:rgba(255,255,255,.92);--ink:#19334a;--mut:#5f7b91;
+  --acc:#287eae;--accbg:#dff1fb;--ok:#21845b;--okbg:#e2f6ed;
+  --bad:#bd4d5b;--badbg:#fde9ec;--line:#c9e0ee;
+}
+body{
+  background:
+    radial-gradient(ellipse at 8% 4%,rgba(255,255,255,.98) 0 2px,transparent 3px),
+    radial-gradient(ellipse at 92% 12%,rgba(255,255,255,.9) 0 3px,transparent 4px),
+    linear-gradient(155deg,#e5f4fc 0%,#f5fbff 48%,#dceefa 100%);
+  background-attachment:fixed;
+}
+body:before,body:after{
+  content:"❄";position:fixed;z-index:0;pointer-events:none;color:rgba(75,151,190,.16);
+  font-size:150px;line-height:1;
+}
+body:before{top:12px;left: max(-25px,calc((100vw - 1050px)/2 - 65px));transform:rotate(-12deg)}
+body:after{right:max(-25px,calc((100vw - 1050px)/2 - 65px));bottom:18px;font-size:190px;transform:rotate(14deg)}
+main{position:relative;z-index:1;max-width:850px;padding:22px 18px 40px}
+h1{
+  color:#155477;text-align:center;font-size:clamp(1.55rem,4vw,2.15rem);
+  line-height:1.25;margin:18px 0 22px;text-shadow:0 2px 0 #fff;
+}
+h1:before{content:"❄  ";color:#58a5cc}
+h1:after{content:"  ❄";color:#58a5cc}
+.card{
+  background:var(--card);border:1px solid rgba(151,195,218,.75);
+  border-radius:20px;padding:20px;margin:17px 0;
+  box-shadow:0 8px 24px rgba(44,105,139,.09),inset 0 1px 0 #fff;
+  backdrop-filter:blur(7px);
+}
+.card h2{color:#205f83}
+.bar{
+  background:linear-gradient(100deg,#d9effa,#edf8fd);
+  color:#205f83;border:1px solid #c6e3f2;border-radius:14px;
+  box-shadow:0 3px 10px rgba(44,105,139,.08);
+}
+.pair{
+  background:linear-gradient(145deg,#e9f7ff,#d8effb);
+  color:#1d6288;border:1px solid #c5e4f3;
+  box-shadow:inset 0 1px 0 #fff;
+}
+.tip{background:#e9f7f0;border-left-color:#42a77b}
+button,select,input,textarea{
+  border-color:#c8deeb;background:#fff;color:#19334a;
+  box-shadow:0 1px 2px rgba(35,91,124,.04);
+}
+button{transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease}
+button:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 10px rgba(42,111,151,.13)}
+button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:3px solid rgba(56,145,190,.28);outline-offset:2px
+}
+button.main{
+  background:linear-gradient(135deg,#318fbd,#216e9a);border-color:#287da8;color:#fff;
+  border-radius:12px;padding:8px 16px;box-shadow:0 4px 10px rgba(36,112,153,.18)
+}
+button.good,input.good,select.good{background:var(--okbg);border-color:var(--ok)}
+button.bad,input.bad,select.bad{background:var(--badbg);border-color:var(--bad)}
+.gap{border-color:#368ab4}
+.row{border-bottom-color:#d6e7f0}
+details summary{cursor:pointer;color:#286e93;font-weight:600}
+textarea{background:rgba(255,255,255,.96)}
+.hint{color:#648096}
+@media(max-width:520px){
+  main{padding:14px 12px 28px}
+  .card{padding:15px;border-radius:17px}
+  .w{min-width:105px}
+  body:before,body:after{font-size:90px;opacity:.65}
+}
+
+</style>
+</head>
+<body>
+<main>
+<h1>✏️ Парные согласные в корне слова</h1>
+<p style="text-align:center;color:#648096;margin:-12px 0 18px;font-size:.95rem">❄️ Зимняя школа грамотности · учимся играя ❄️</p>
+<div class="bar"><span>Прогресс</span><span id="total">0 / 0</span></div>
+
+<section class="card">
+<h2>📘 Теория</h2>
+<p>В русском языке есть <b>парные согласные</b>: одни звучат глухо, другие звонко.</p>
+<div class="pairs">
+<div class="pair">б — п<small>зуб, зу[п]</small></div><div class="pair">в — ф<small>кров, кро[ф]</small></div>
+<div class="pair">г — к<small>снег, сне[к]</small></div><div class="pair">д — т<small>сад, са[т]</small></div>
+<div class="pair">ж — ш<small>нож, но[ш]</small></div><div class="pair">з — с<small>мороз, моро[с]</small></div>
+</div>
+<p>На конце слова и перед другой согласной мы слышим глухой звук, а пишем иногда звонкую букву. Это <b>сомнительная согласная</b>.</p>
+<div class="tip"><b>Правило.</b> Чтобы проверить, измени слово или подбери родственное так, чтобы после согласной стоял <b>гласный</b> (или <b>р, л, м, н, в</b>). Какую согласную слышим, такую и пишем.</div>
+<p>Примеры: <b>дуб</b> → ду<u>б</u>ы; <b>ложка</b> → ло<u>ж</u>ечка; <b>сказка</b> → ска<u>з</u>очный; <b>лёгкий</b> → ле<u>г</u>че.</p>
+<p class="hint">Алгоритм: 1) увидел сомнительную согласную; 2) подобрал проверочное слово; 3) услышал звук; 4) записал букву.</p>
+</section>
+
+<section class="card"><h2>Задание 1. Вставь букву <span class="res" id="r1"></span></h2><p class="hint">Нажми на нужную букву. После верного ответа появится проверочное слово.</p><div id="t1"></div></section>
+<section class="card"><h2>Задание 2. Подбери проверочное слово <span class="res" id="r2"></span></h2><p class="hint">Впиши родственное слово, где согласная стоит перед гласным.</p><div id="t2"></div><button class="main" onclick="chk2()">Проверить</button></section>
+<section class="card"><h2>Задание 3. Выбери правильное написание <span class="res" id="r3"></span></h2><div id="t3"></div></section>
+<section class="card"><h2>Задание 4. Объёмное: вставь буквы в тексте <span class="res" id="r4"></span></h2><div class="text" id="t4"></div><button class="main" onclick="chk4()">Проверить текст</button></section>
+<section class="card"><h2>Задание 5. Слово и проверочное слово <span class="res" id="r5"></span></h2><p class="hint">Выбери для каждого слова верную проверку.</p><div id="t5"></div><button class="main" onclick="chk5()">Проверить</button></section>
+<section class="card"><h2>Задание 6. Объёмное: отгадай и запиши слово <span class="res" id="r6"></span></h2><div id="t6"></div><button class="main" onclick="chk6()">Проверить</button></section>
+<section class="card"><h2>Задание 7. Творческое</h2>
+<p>Составь и запиши 4 предложения со словами: <b>друг, сказка, снег, ложка</b>. Подчеркни проверяемые согласные.</p>
+<textarea placeholder="Пиши здесь…"></textarea>
+<details><summary>Диктант для учителя (10 слов)</summary><p>Зуб, хлеб, мороз, сказка, лёгкий, гриб, нож, шапка, низкий, друг. Ученик пишет слово и рядом проверочное.</p></details></section>
+</main>
+<script>
+const $=s=>document.querySelector(s),N=s=>s.trim().toLowerCase().replace(/ё/g,'е'),sc={},TOT=20+12+10+12+8+12;
+function upd(id,n,t){sc[id]=n;$('#r'+id).textContent=n+' / '+t;let s=0;for(const k in sc)s+=sc[k];$('#total').textContent=s+' / '+TOT}
+$('#total').textContent='0 / '+TOT;
+function el(h){const d=document.createElement('div');d.innerHTML=h;return d.firstChild}
+
+// 1
+const D1=[['ду','б/п','','б','дубы'],['хле','б/п','','б','хлеба'],['гри','б/п','','б','грибы'],['сне','г/к','','г','снега'],['пиро','г/к','','г','пироги'],['моро','з/с','','з','морозы'],['лё','т/д','','д','льда'],['са','т/д','','д','сады'],['зу','б/п','','б','зубы'],['гла','з/с','','з','глаза'],['но','ж/ш','','ж','ножи'],['каранда','ж/ш','','ш','карандаши'],['ё','ж/ш','','ж','ежи'],['ло','ж/ш','ка','ж','ложечка'],['ша','п/б','ка','п','шапочка'],['ска','з/с','ка','з','сказочный'],['лё','г/к','кий','г','легче'],['ни','з/с','кий','з','ниже'],['у','з/с','кий','з','уже'],['сла','т/д','кий','д','сладость']];
+let s1=0;
+D1.forEach(([a,o,b,ans,chk])=>{
+ const r=el(`<div class="row"><span class="w">${a}<span class="gap">_</span>${b}</span></div>`),g=r.querySelector('.gap');let bad=false;
+ o.split('/').forEach(l=>{const bt=el(`<button class="o">${l}</button>`);bt.onclick=()=>{
+  if(l===ans){if(!bad)s1++;g.textContent=l;g.classList.add('ok');bt.classList.add('good');r.querySelectorAll('button').forEach(x=>x.disabled=true);r.append(el(`<span class="hint">проверка: ${chk}</span>`));upd(1,s1,20)}else{bad=true;bt.classList.add('bad')}};r.append(bt)});
+ $('#t1').append(r)});upd(1,0,20);
+
+// 2
+const D2=[['голу_ь','б',['голуби','голубка']],['дру_','г',['друзья','дружить','дружок']],['обе_','д',['обеды','обедать']],['цве_','т',['цветы','цветок','цвести']],['гара_','ж',['гаражи']],['ле_','с',['леса','лесок','лесной']],['ро_','г',['рога']],['мос_','т',['мосты','мостик']],['моро_','з',['морозы','морозный']],['жу_','к',['жуки','жучок']],['гу_ь','с',['гуси','гусята']],['наро_','д',['народы','народный']]];
+D2.forEach(([w,l,a],i)=>$('#t2').append(el(`<div class="row"><span class="w">${w}</span><input id="i2_${i}" autocomplete="off" placeholder="проверочное слово"><span class="hint" id="h2_${i}"></span></div>`)));
+function chk2(){let n=0;D2.forEach(([w,l,a],i)=>{const e=$('#i2_'+i),ok=a.map(N).includes(N(e.value));if(ok)n++;e.className=ok?'good':'bad';$('#h2_'+i).textContent=ok?'Буква «'+l+'»':'Например: '+a[0]+' → «'+l+'»'});upd(2,n,12)}
+
+// 3
+const D3=[['Бабушка испекла вкусный','пирог','пирок'],['В саду растёт крепкий','дуб','дуп'],['На зелёном','луг','лук'],['Утром выпал первый','снег','снек'],['В корзинке лежал белый','гриб','грип'],['У дома цветёт','сад','сат'],['Положи в суп','ложку','лошку'],['Мама рассказала мне','сказку','скаску'],['Это очень','лёгкая','лёкая'],['Надень тёплую','шапку','шабку']];
+let s3=0;
+D3.forEach(([a,c,w])=>{const r=el(`<div class="row"><span>${a}</span></div>`);let bad=false;[c,w].sort(()=>Math.random()-.5).forEach(v=>{const b=el(`<button>${v}</button>`);b.onclick=()=>{if(v===c){if(!bad)s3++;b.classList.add('good');r.querySelectorAll('button').forEach(x=>x.disabled=true);upd(3,s3,10)}else{bad=true;b.classList.add('bad')}};r.append(b)});$('#t3').append(r)});upd(3,0,10);
+
+// 4
+const T4="Зима. Выпал пушистый сне{г/к|г}, ударил моро{з/с|з}. Мальчики надели ша{п/б|п}ки и выбежали во двор. Они залезли на высокий сугро{б/п|б} и слепили снеговика. Вместо носа воткнули мор{к/г|к}овку, а вместо глаз — у{г/к|г}ольки. Ребята продрогли и вернулись домой. Мама налила им горячий чай в ча{ш/ж|ш}ки, а на столе лежал свежий хле{б/п|б}. Рядом лежала ло{ж/ш|ж}ка. Вечером бабушка прочитала ска{з/с|з}ку про лё{г/к|г}кого зайчика. Тропинка была у{з/с|з}кая, а сугробы — высокие.";
+let k4=[];$('#t4').innerHTML=T4.replace(/\{([^|}]+)\|([^}]+)\}/g,(m,o,a)=>{k4.push(a);return `<select data-a="${a}"><option value="">?</option>${o.split('/').map(x=>`<option>${x}</option>`).join('')}</select>`});
+function chk4(){let n=0;document.querySelectorAll('#t4 select').forEach(s=>{const ok=s.value===s.dataset.a;if(ok)n++;s.className=ok?'good':'bad'});upd(4,n,12)}upd(4,0,12);
+
+// 5
+const D5=[['гриб','грибы'],['друг','друзья'],['мороз','морозы'],['ложка','ложечка'],['сказка','сказочный'],['шапка','шапочка'],['нож','ножи'],['лёгкий','легче']];
+const opts5=D5.map(x=>x[1]).sort((a,b)=>a<b?-1:1);
+D5.forEach(([w,c],i)=>$('#t5').append(el(`<div class="row"><span class="w">${w}</span> →<select id="s5_${i}"><option value="">выбери</option>${opts5.map(o=>`<option>${o}</option>`).join('')}</select></div>`)));
+function chk5(){let n=0;D5.forEach(([w,c],i)=>{const e=$('#s5_'+i),ok=e.value===c;if(ok)n++;e.className=ok?'good':'bad'});upd(5,n,8)}upd(5,0,8);
+
+// 6
+const D6=[['Белое, холодное, падает зимой','снег'],['Его пекут и едят с маслом','хлеб'],['Растёт в лесу, у него шляпка и ножка','гриб'],['Крепкое дерево, на нём растут жёлуди','дуб'],['Ими едят суп: …','ложка'],['Колючий лесной зверёк','ёж'],['Им пишут в тетради','карандаш'],['Тот, с кем дружат','друг'],['Им режут хлеб','нож'],['По нему переходят реку','мост'],['Домик для машины','гараж'],['Птица, которая любит воду и гогочет','гусь']];
+D6.forEach(([q],i)=>$('#t6').append(el(`<div class="row"><span>${i+1}. ${q}</span><input id="i6_${i}" autocomplete="off"></div>`)));
+function chk6(){let n=0;D6.forEach(([q,a],i)=>{const e=$('#i6_'+i),ok=N(e.value)===N(a);if(ok)n++;e.className=ok?'good':'bad'});upd(6,n,12)}upd(6,0,12);
+</script>
+</body>
+</html>
